@@ -1,0 +1,18 @@
+#include "t7.h"
+#include "rpc.h"
+
+T7VTABLE T7::__vtable;
+bool T7::vtable_initialized = false;
+
+
+T7VTABLE T7::vtable()
+{
+    if (!vtable_initialized)
+    {
+        __vtable.BaseAddress = RPC::get_game_base();
+        __vtable.Cbuf_AddText = (void(*)(int, const char*)) T7OFF_CBUFF;
+        __vtable.Dvar_SetFromStringByNameFromSource = (void(*)(const char*, const char*, int, int, bool)) T7OFF_SetDvarBySource;
+        vtable_initialized = true;
+    }
+    return __vtable;
+}
