@@ -33,6 +33,7 @@ inline constexpr int32_t chash(const char* const str)
 typedef struct CommandHeader {
 	int32_t Magic;
 	int32_t Command;
+	int64_t AdditionalData;
 } CommandHeader;
 
 class RPC
@@ -49,4 +50,5 @@ public:
 
 private:
     static void* GameBase;
+	static CommandHeader CryptHeader;
 };

@@ -1,10 +1,19 @@
 #pragma once
+#include "ppc.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
 #include <kernel.h>
 #include <libsysmodule.h>
+
+#define T7VBASE (uint64_t)__vtable.BaseAddress
+#define T7OFF(x) (T7VBASE + x)
+
+#ifdef USE_STATIC_OFFSETS
+#define T7OFF_CBUFF T7OFF(0xEE44C0)
+#define T7OFF_SetDvarBySource T7OFF(0xFBC5A0)
+#endif
 
 typedef struct T7VTABLE {
 	void* BaseAddress;
@@ -22,9 +31,3 @@ private:
 	static T7VTABLE __vtable;
 	static bool vtable_initialized;
 };
-
-#define T7VBASE (uint64_t)__vtable.BaseAddress
-#define T7OFF(x) (T7VBASE + x)
-
-#define T7OFF_CBUFF T7OFF(0xEE44C0)
-#define T7OFF_SetDvarBySource T7OFF(0xFBC5A0)

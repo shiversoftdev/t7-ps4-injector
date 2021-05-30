@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="ppc.h" />
     <ClInclude Include="prx.h" />
     <ClInclude Include="rpc.h" />
     <ClInclude Include="t7.h" />
