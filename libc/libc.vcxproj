@@ -5,6 +5,14 @@
       <Configuration>Debug</Configuration>
       <Platform>ORBIS</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="libSceNpToolkit2|ORBIS">
+      <Configuration>libSceNpToolkit2</Configuration>
+      <Platform>ORBIS</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="libSceNpToolkit|ORBIS">
+      <Configuration>libSceNpToolkit</Configuration>
+      <Platform>ORBIS</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|ORBIS">
       <Configuration>Release</Configuration>
       <Platform>ORBIS</Platform>
@@ -12,16 +20,28 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{895553DD-839F-408D-A2DB-BB2E93D13D4C}</ProjectGuid>
-    <ProjectName>libSceNpToolkit</ProjectName>
+    <ProjectName>tx_prx</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ORBIS'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='libSceNpToolkit|ORBIS'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='libSceNpToolkit2|ORBIS'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ORBIS'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='libSceNpToolkit|Win32'" Label="Configuration">
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='libSceNpToolkit2|Win32'" Label="Configuration">
     <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -42,19 +62,59 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ORBIS'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='libSceNpToolkit|ORBIS'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='libSceNpToolkit2|ORBIS'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ORBIS'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ORBIS'">
+    <TargetName>$(Configuration)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='libSceNpToolkit|ORBIS'">
+    <TargetName>$(Configuration)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='libSceNpToolkit2|ORBIS'">
+    <TargetName>$(Configuration)</TargetName>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ORBIS'">
     <ClCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions);</PreprocessorDefinitions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CodeCoverageOutputFile>/app0/$(Configuration).profraw</CodeCoverageOutputFile>
     </ClCompile>
     <Link>
       <AdditionalDependencies>-lScePad_stub_weak;-lSceUserService_stub_weak;-lScePosix_stub_weak;-lSceSysmodule_stub_weak;-lSceNet_stub_weak;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeOptimization>Thin</LinkTimeOptimization>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='libSceNpToolkit|ORBIS'">
+    <ClCompile>
+      <PreprocessorDefinitions>_DEBUG;IS_T7;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CodeCoverageOutputFile>/app0/$(Configuration).profraw</CodeCoverageOutputFile>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>-lScePad_stub_weak;-lSceUserService_stub_weak;-lScePosix_stub_weak;-lSceSysmodule_stub_weak;-lSceNet_stub_weak;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeOptimization>Thin</LinkTimeOptimization>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='libSceNpToolkit2|ORBIS'">
+    <ClCompile>
+      <PreprocessorDefinitions>_DEBUG;IS_T8;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CodeCoverageOutputFile>/app0/$(Configuration).profraw</CodeCoverageOutputFile>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>-lScePad_stub_weak;-lSceUserService_stub_weak;-lScePosix_stub_weak;-lSceSysmodule_stub_weak;-lSceNet_stub_weak;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeOptimization>Thin</LinkTimeOptimization>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ORBIS'">
@@ -69,6 +129,7 @@
     <ClCompile Include="prx.cpp" />
     <ClCompile Include="rpc.cpp" />
     <ClCompile Include="t7.cpp" />
+    <ClCompile Include="t8.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controller.h" />
@@ -76,6 +137,7 @@
     <ClInclude Include="prx.h" />
     <ClInclude Include="rpc.h" />
     <ClInclude Include="t7.h" />
+    <ClInclude Include="t8.h" />
   </ItemGroup>
   <Import Condition="'$(ConfigurationType)' == 'Makefile' and Exists('$(VCTargetsPath)\Platforms\$(Platform)\SCE.Makefile.$(Platform).targets')" Project="$(VCTargetsPath)\Platforms\$(Platform)\SCE.Makefile.$(Platform).targets" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

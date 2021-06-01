@@ -19,7 +19,12 @@ __declspec (dllexport) void dummy()
 
 int module_start(size_t args, const void* argp)
 {
+#ifdef IS_T7
     sceKernelLoadStartModule("/app0/sce_module/_libSceNpToolkit.prx", 0, 0, 0, 0, 0);
+#endif
+#ifdef IS_T8
+    sceKernelLoadStartModule("/app0/sce_module/_libSceNpToolkit2.prx", 0, 0, 0, 0, 0);
+#endif
     printf("[SMC] Initializing...\n");
 
     int libsysutil_id = sceKernelLoadStartModule("libSceSysUtil.sprx", 0, 0, 0, 0, 0);
@@ -27,7 +32,6 @@ int module_start(size_t args, const void* argp)
 
     sceKernelDlsym(libsysutil_id, "sceSysUtilSendNpDebugNotificationRequest", (void**)&RPC::sceSysUtilSendNpDebugNotificationRequest);
     printf("[SMC] libsysutil_id: 0x%08x sceSysUtilSendNpDebugNotificationRequest: %p\n", libsysutil_id, RPC::sceSysUtilSendNpDebugNotificationRequest);
-
     scePthreadCreate(&main_thread, &attr, RPC::rpc_think, NULL, "smc");
     return 0;
 }

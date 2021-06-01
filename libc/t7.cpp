@@ -7,6 +7,7 @@ bool T7::vtable_initialized = false;
 
 T7VTABLE T7::vtable()
 {
+#ifdef IS_T7
     if (!vtable_initialized)
     {
         __vtable.BaseAddress = RPC::get_game_base();
@@ -17,5 +18,6 @@ T7VTABLE T7::vtable()
         vtable_initialized = true;
 
     }
+#endif
     return __vtable;
 }

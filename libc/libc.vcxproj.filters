@@ -40,5 +40,8 @@
     <ClInclude Include="ppc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="t8.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

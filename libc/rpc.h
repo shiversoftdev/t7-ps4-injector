@@ -30,6 +30,8 @@ inline constexpr int32_t chash(const char* const str)
 #define CMD_T7_LAUNCHGAME chash("lobbylaunchgame_t7")
 #define CMD_T7_INJECT chash("inject_script_t7")
 
+#define CMD_T8_DUMP chash("dump_scripts_t8")
+
 typedef struct CommandHeader {
 	int32_t Magic;
 	int32_t Command;
@@ -44,6 +46,14 @@ public:
 	static void* on_client_connected(void* arg);
 	static void notify(const char* msg);
     static void* get_game_base();
+
+#ifdef IS_T7
+	static void exec_t7_cmd(CommandHeader* header);
+#endif
+
+#ifdef IS_T8
+	static void exec_t8_cmd(CommandHeader* header);
+#endif
 
 	static SceNetId ServerID;
 	static bool ShouldExit;

@@ -3,16 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30803.129
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libc", "libc\libc.vcxproj", "{895553DD-839F-408D-A2DB-BB2E93D13D4C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tx_prx", "libc\libc.vcxproj", "{895553DD-839F-408D-A2DB-BB2E93D13D4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ORBIS = Debug|ORBIS
+		libSceNpToolkit|ORBIS = libSceNpToolkit|ORBIS
+		libSceNpToolkit2|ORBIS = libSceNpToolkit2|ORBIS
 		Release|ORBIS = Release|ORBIS
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{895553DD-839F-408D-A2DB-BB2E93D13D4C}.Debug|ORBIS.ActiveCfg = Debug|ORBIS
 		{895553DD-839F-408D-A2DB-BB2E93D13D4C}.Debug|ORBIS.Build.0 = Debug|ORBIS
+		{895553DD-839F-408D-A2DB-BB2E93D13D4C}.libSceNpToolkit|ORBIS.ActiveCfg = libSceNpToolkit|ORBIS
+		{895553DD-839F-408D-A2DB-BB2E93D13D4C}.libSceNpToolkit|ORBIS.Build.0 = libSceNpToolkit|ORBIS
+		{895553DD-839F-408D-A2DB-BB2E93D13D4C}.libSceNpToolkit2|ORBIS.ActiveCfg = libSceNpToolkit2|ORBIS
+		{895553DD-839F-408D-A2DB-BB2E93D13D4C}.libSceNpToolkit2|ORBIS.Build.0 = libSceNpToolkit2|ORBIS
 		{895553DD-839F-408D-A2DB-BB2E93D13D4C}.Release|ORBIS.ActiveCfg = Release|ORBIS
 		{895553DD-839F-408D-A2DB-BB2E93D13D4C}.Release|ORBIS.Build.0 = Release|ORBIS
 	EndGlobalSection
